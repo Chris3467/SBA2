@@ -90,7 +90,21 @@ function getLearnerData(courseInfo, assignmentGroups, LearnerSubmissions) {
     return acc;
   }, {}); // Start with an empty object as the initial value
 
+  // Additional loop. Iterate over learners results
+  for (const learnerId in result) {
+    const learnerData = result[learnerId]; 
+    // Skip learners with an avg score below 0.5
+    if (learnerData.avg < 0.5) {
+      console.log(`Skipping Learner ${learnerId} due to low avg score`); 
+      continue; 
+    } // Remove learners with no submissions or low scores
+    if (Object.keys(learnerData).length === 0 || learnerData.avg < 0.4) {
+      console.log(`Removing learner ${learnerId} from results due to low performance`);
+      delete result[learnerId];
+    } 
+  }
   return result;
+
 }
 
 // Call the function and log the result
