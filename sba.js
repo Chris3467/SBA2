@@ -1,121 +1,61 @@
-const CourseInfo = { id: 451, name: "Introduction to JavaScript" };
-// The provided assignment group.
-const AssignmentGroup = {
-  id: 12345,
-  name: "Fundamentals of JavaScript",
-  course_id: 451,
-  group_weight: 25,
-  assignments: [
-    {
-      id: 1,
-      name: "Declare a Variable",
-      due_at: "2023-01-25",
-      points_possible: 50,
-    },
-    {
-      id: 2,
-      name: "Write a Function",
-      due_at: "2023-02-27",
-      points_possible: 150,
-    },
-    {
-      id: 3,
-      name: "Code the World",
-      due_at: "3156-11-15",
-      points_possible: 500,
-    },
-  ],
-};
-
-const LearnerSubmissions = [
-  {
-    learner_id: 125,
-    assignment_id: 1,
-    submission: { Submitted_at: "2023-01-25", score: 47 },
-  },
-  {
-    learner_id: 125,
-    assignment_id: 2,
-    submission: { submitted_at: "2023-02-12", score: 150 },
-  },
-  {
-    learner_id: 125,
-    assignment_id: 3,
-    submission: { submitted_at: "2023-01-25", score: 400 },
-  },
-  {
-    learner_id: 132,
-    assignment_id: 1,
-    submission: { submitted_at: "2023-01-24", score: 39 },
-  },
-  {
-    learner_id: 132,
-    assignment_id: 2,
-    submission: { Submitted_at: "2023-03-07", score: 140 },
-  },
-];
-function getLearnerData(course, ag, submissions) {
-  // here, we would process this data to achieve the desired result.
-  const result = [
-    {
-      id: 125,
-      avg: 0.985, // (47 + 150) / (50 + 150)
-      1: 0.94, // 47 / 50
-      2: 1.0, // 150 / 150
-    },
-    {
-      id: 132,
-      avg: 0.82, // (39 + 125) / (50 + 150)
-      1: 0.78, // 39 / 50
-      2: 0.833, // late: (140 - 15) / 150
-    },
-  ];
-
-  return result;
-}
-const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-console.log(result);
 
 // Define course information
-const courseInfo2 = { courseId: 321, name: "JavaScript" };
+const courseInfo = { courseId: 321, name: "JavaScript" };
 
 // Define assignment groups
-const assignmentGroups2 = {
+const assignmentGroups = {
   groupId: 5,
   courseId: 321,
   assignments: [
     {
       assignmentId: 1,
       name: "Java",
-      dueDate: 2024 - 11 - 2,
+      dueDate: '2024-11-02',
       pointsPossible: 100,
     },
     {
       assignmentId: 2,
       name: "CSS",
-      dueDate: 2024 - 11 - 3,
+      dueDate: '2024-11-3',
       pointsPossible: 200,
     },
     {
       assignmentId: 3,
       name: "HTML",
-      dueDate: 2024 - 11 - 4,
+      dueDate: '2024-1-04',
       pointsPossible: 150,
     },
     {
       assignmentId: 4,
       name: "React",
-      dueDate: 2024 - 11 - 5,
+      dueDate: '2024-11-05',
       pointsPossible: 300,
     },
   ],
 };
 
+// Learners submission data
+const LearnerSubmissions = [{
+  learnerId: 315, assignmentId: 1, submission: {submittedAt: '2024-11-01', score: 90 }
+}, {learnerId: 320, assignmentId: 2, submission: {submittedAt: '2024-11-05', score: 70}}]
+
 // Main function to process the learner data
-function getLearnerData2(courseGroup, submission) {
+function getLearnerData(course, group, submission) {
   if (course.courseId !== group.courseId) {
     // Made a condition where course and group do not match
     throw new Error("Info not valid"); // Used throw new error to say that the infos do not match
-  }
-  const currentDate = newDate();  // Checking if assignment is late and determining penalty
+  } console.log(getLearnerData);
 }
+  /* const currentDate = newDate();  // Checking if assignment is late and determining penalty
+  const result = submission.reduce((acc, submission) => {
+    const learnerId = submission.learnerId;
+    const assignment = group.assignments.find(a => a.assignmentId === submission.assignmentId);
+    // Using the reduce method to accumulate the results 
+
+    if (!assignment || new Date(assignment.dueAt > currentDate)){
+  if (!acc [learnerId]) {
+  acc[learnerId] = {id: studentId , totalScore: 0, totalPoints: 0, avg: 0};
+}} return acc;
+}), {}}; 
+    return 
+console.log(getLearnerData); */
