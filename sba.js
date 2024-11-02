@@ -110,3 +110,12 @@ const assignmentGroups2 = {
     },
   ],
 };
+
+// Main function to process the learner data
+function getLearnerData2(courseGroup, submission) {
+  if (course.courseId !== group.courseId) {
+    // Made a condition where course and group do not match
+    throw new Error("Info not valid"); // Used throw new error to say that the infos do not match
+  }
+  const currentDate = newDate();  // Checking if assignment is late and determining penalty
+}
